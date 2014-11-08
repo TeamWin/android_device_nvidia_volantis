@@ -4,10 +4,10 @@ USE_CAMERA_STUB := true
 -include vendor/samsung/volantis/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := universal5433
+TARGET_BOOTLOADER_BOARD_NAME := volantis
 
 # Platform
-TARGET_BOARD_PLATFORM := tegra3
+TARGET_BOARD_PLATFORM := tegra132
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -22,7 +22,6 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE :=  0x10000000
@@ -36,6 +35,13 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/nvidia/volantis/kernAl
+# Kernel Configs
+#TARGET_KERNEL_SOURCE := kernel/nvidia/volantis
+#TARGET_KERNEL_CONFIG := flounder_defconfig
+#TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
+#TARGET_KERNEL_VARIANT_CONFIG := apq8084_sec_trlte_twrp_defconfig
+#VARIANT_CONFIG := apq8084_sec_trlte_twrp_defconfig
+#TIMA_DEFCONFIG := tima_defconfig
 
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
@@ -55,8 +61,6 @@ TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_NO_REBOOT_BOOTLOADER := true
-TW_HAS_DOWNLOAD_MODE := true
 #TW_INCLUDE_CRYPTO := true
 #TW_CRYPTO_FS_TYPE := "ext4"
 #TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p29"
@@ -66,3 +70,4 @@ TW_HAS_DOWNLOAD_MODE := true
 #TW_CRYPTO_KEY_LOC := "footer"
 #TW_NO_EXFAT_FUSE := true
 #TW_NO_EXFAT := true
+BOARD_CUSTOM_BOOTIMG_MK :=  device/nvidia/volantis/custombootimg.mk

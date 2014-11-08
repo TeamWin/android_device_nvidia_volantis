@@ -13,7 +13,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/selinux/file_contexts:recovery/root/prebuilt_file_contexts \
 	$(LOCAL_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab \
-	$(LOCAL_PATH)/init.recovery.universal5433.rc:root/init.recovery.universal5433.rc
+	$(LOCAL_PATH)/init.recovery.flounder.rc:root/init.recovery.flounder.rc
 
 $(call inherit-product, build/target/product/full.mk)
 
