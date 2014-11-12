@@ -8,6 +8,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	rm out/target/product/volantis/recovery/root/init
 	cp device/nvidia/volantis/recovery/init out/target/product/volantis/recovery/root/init
 	chmod 644 out/target/product/volantis/recovery/root/init
+	cd out/target/product/volantis/recovery/root/ && ln -s init watchdogd
 	$(MKBOOTFS) $(TARGET_RECOVERY_ROOT_OUT) > $@ 
 	$(MINIGZIP) < $(recovery_uncompressed_ramdisk) > $@
 	@echo ----- Making recovery image ------

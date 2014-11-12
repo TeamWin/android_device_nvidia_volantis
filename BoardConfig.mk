@@ -1,27 +1,14 @@
-USE_CAMERA_STUB := true
-
-# inherit from the proprietary version
--include vendor/samsung/volantis/BoardConfigVendor.mk
-
-TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := volantis
-
-# Platform
-TARGET_BOARD_PLATFORM := tegra132
-
-# Flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 
-
-# Architecture
-TARGET_CPU_VARIANT := cortex-a15
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := denver64
 TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := denver
 
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE :=  0x10000000
@@ -35,6 +22,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/nvidia/volantis/kernAl
+BOARD_CUSTOM_BOOTIMG_MK :=  device/nvidia/volantis/custombootimg.mk
 # Kernel Configs
 #TARGET_KERNEL_SOURCE := kernel/nvidia/volantis
 #TARGET_KERNEL_CONFIG := flounder_defconfig
@@ -70,4 +58,4 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 #TW_CRYPTO_KEY_LOC := "footer"
 #TW_NO_EXFAT_FUSE := true
 #TW_NO_EXFAT := true
-BOARD_CUSTOM_BOOTIMG_MK :=  device/nvidia/volantis/custombootimg.mk
+TW_USE_TOOLBOX := true
